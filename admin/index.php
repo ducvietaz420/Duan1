@@ -3,8 +3,9 @@ ob_start();
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin</title>
     <link type="text/css" href="../cssjsadmin/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -15,32 +16,31 @@ ob_start();
         rel='stylesheet'>
 
 </head>
+
 <body>
-<?php
-        include __DIR__ .'/includes/header.php';
-        
+    <?php
+    include __DIR__ . '/includes/header.php';
+
     ?>
-<?php
-        session_start();
-        if(!isset($_SESSION['login_us']))
-            header("location:login.php");
-      ?>
-<div class="wrapper">
-    <div class="container">
-        <div class="row">
-            <div class="span3">
+    <?php
+    session_start();
+    if (!isset($_SESSION['login_us']))
+        header("location:login.php");
+    ?>
+    <div class="wrapper">
+        <div class="container">
+            <div class="row">
+                <div class="span3">
+                    <?php
+                    include __DIR__ . "/includes/connect.php";
+                    include __DIR__ . '/includes/sidebar.php';
+                    ?>
+                </div>
                 <?php
-                    include __DIR__ ."/includes/connect.php";
-                    include __DIR__ .'/includes/sidebar.php';
-                ?>
-            </div>
-                <?php
-                if(isset($_REQUEST['page']))
-                {
-                   $page=$_REQUEST['page'];
-                   switch ($page)
-                    {
-                        
+                if (isset($_REQUEST['page'])) {
+                    $page = $_REQUEST['page'];
+                    switch ($page) {
+
                         case "dstau":
                             include "cms/danhsachtau.php";
                             break;
@@ -61,15 +61,7 @@ ob_start();
                             break;
                         case "dsdh":
                             break;
-                        case "themdm":
-                            include "cms/themdm.php";
-                            break;
-                        case "suadm":
-                            include "cms/suadm.php";
-                            break;
-                        case "xoadm":
-                            include "cms/xoadm.php";
-                            break;
+
                         case "themtau":
                             include "cms/themtau.php";
                             break;
@@ -118,49 +110,24 @@ ob_start();
                         case "xoanhanvien":
                             include "cms/xoanhanvien.php";
                             break;
-                        
-                        case 'order':
-                            include "cms/order.php";
-                            break;
-                        case 'order_dt':
-                            include "cms/order_dt.php";
-                            break;
-                        
-                        
-                        case 'logout';
-                            include "cms/logout.php";
-                                break;
-                        case 'order';
-                            include "cms/order.php";
-                            break;
-                        case 'orderdt';
-                            include "cms/orderdt.php";
-                            break;
-                        case 'orderkh';
-                            include "cms/orderkh.php";
-                            break;
-                        case 'tinnhan';
-                            include "cms/tinnhan.php";
-                            break;
-                        
+                        default:
                     }
-                
                 }
-            
-               ?>
-           
-            
-        </div>
-    </div>
-                            <!--/.container-->
-</div>
-                        <!--/.wrapper-->
 
-         <?php
-            include __DIR__.'/includes/footer.php';
-         ?>
-   <script src="../cssjsadmin/ckeditor/ckeditor.js" type="text/javascript"></script>
-	<script src="../cssjsadmin/scripts/jquery-1.9.1.min.js" type="text/javascript"></script>
+                ?>
+
+
+            </div>
+        </div>
+        <!--/.container-->
+    </div>
+    <!--/.wrapper-->
+
+    <?php
+    include __DIR__ . '/includes/footer.php';
+    ?>
+    <script src="../cssjsadmin/ckeditor/ckeditor.js" type="text/javascript"></script>
+    <script src="../cssjsadmin/scripts/jquery-1.9.1.min.js" type="text/javascript"></script>
     <script src="../cssjsadmin/scripts/jquery-ui-1.10.1.custom.min.js" type="text/javascript"></script>
     <script src="../cssjsadmin/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
     <script src="../cssjsadmin/scripts/flot/jquery.flot.js" type="text/javascript"></script>
@@ -168,4 +135,5 @@ ob_start();
     <script src="../cssjsadmin/scripts/common.js" type="text/javascript"></script>
     <script src="../cssjsadmin/scripts/datatables/jquery.dataTables.js" type="text/javascript"></script>
 </body>
+
 </html>
