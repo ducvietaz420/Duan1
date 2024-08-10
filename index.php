@@ -27,6 +27,7 @@ include 'display/header.php';
                         case "contact";
                             include 'display/contact.php';
                             break;
+
                         case "login";
                             include 'display/login.php';
                             break;
